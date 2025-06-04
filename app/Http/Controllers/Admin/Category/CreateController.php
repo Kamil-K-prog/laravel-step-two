@@ -9,7 +9,6 @@ class CreateController extends Controller
 {
     public function __invoke(Request $request)
     {
-        // Пока просто редирект
         return view('admin.categories.create');
     }
 }

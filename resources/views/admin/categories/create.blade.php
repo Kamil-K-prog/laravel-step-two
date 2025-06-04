@@ -7,13 +7,16 @@
                 <div class="card-header">
                     <div class="card-title">Добавить категорию</div>
                 </div>
-                <form action="#">
+                <form action="{{ route('admin.category.store') }}" method="POST">
+                    @csrf
                     <div class="card-body">
                         <label for="newCategoryName">Название категории</label>
                         <input type="text" class="form-control" id="newCategoryName" name="name"
-                               placeholder="Введите название" required>
+                               placeholder="Введите название" value="{{ old('name') }}" required minlength="3">
                         @error('name')
+                        <div class="text-danger">
                             {{ $message }}
+                        </div>
                         @enderror
                     </div>
                     <div class="card-footer">
